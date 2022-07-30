@@ -1,0 +1,1 @@
+Utilizei no teste a forma de acesso a dados que tenho costume de usar (DAO), claro que unindo ao time me adequarei a forma de trabalho da empresa.
