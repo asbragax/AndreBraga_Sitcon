@@ -16,6 +16,7 @@
     <body>
         <?php 
 
+                //VERIFICA SE EXISTE UM PARÂMETRO PASSADO VIA GET, CASO NÃO EXISTA EXIBE UMA MENSAGEM DE ERRO
                 if(isset($_GET['id']) && strlen($_GET['id']) > 0){
     
                     $id = $_GET['id'];
@@ -25,15 +26,20 @@
                     include_once('DAO/SolicitacaoDAO.php');
                     include_once('action/cadastraSolicitacao.php');
                     
+                    //BUSCA O PACIENTE PELO ID
                     $dao = new PacienteDAO();
                     $paciente = $dao->buscaPorId($id);
 
+
+                    //LISTA OS PROFISSIONAIS ATIVOS
                     $dao = new ProfissionalDAO();
                     $profissionais = $dao->listarAtivos($id);
 
+                    //LISTA OS TIPOS DE SOLICITAÇÃO
                     $dao = new SolicitacaoDAO();
                     $tipos = $dao->listarTipos();
                 }else{
+
                     $paciente = null;
                 }
 
